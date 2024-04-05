@@ -3,6 +3,7 @@
 Dog::Dog(): Animal("Dog")
 {
 	std::cout << "Default Dog Constructor" << std::endl;
+	this->_brain = new Brain();
 }
 Dog::Dog(std::string type)
 {
@@ -18,6 +19,7 @@ Dog::Dog(const Dog &copy)
 Dog::~Dog()
 {
 		std::cout << "Dog Destructor" << std::endl;
+		delete this->_brain ;
 }
 Dog &  Dog::operator =(Dog const &inst)
 {
@@ -40,4 +42,13 @@ std::string Dog::getType() const
 void Dog::setType(std::string type)
 {
 	_type=type;
+}
+std::string	Dog::getIdea(int i) const
+{
+	return("Dog Idea " + std::to_string(i));
+}
+
+void		Dog::setIdea(int i, std::string const & idea)
+{
+	this->_brain->setIdea(i, idea);
 }
