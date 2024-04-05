@@ -2,14 +2,18 @@
 
 Animal::Animal() : _type("Undefined type")
 {
-	//setType("Undefined type");
 	std::cout << "Default Animal Constructor" << std::endl;
-	//this->_brain = new Brain();
+
 }
-Animal::Animal(std::string type)
+Animal::Animal(std::string type) : _type(type) 
 {
-	setType(type);
 	std::cout << "Animal Constructor" << std::endl;
+/* 	if(getType() == "Dog")
+		Dog();
+	else if(getType() == "Cat")
+		Cat();
+	else
+		WrongAnimal(); */
 }
 Animal::Animal(const Animal &copy)
 {
@@ -20,35 +24,25 @@ Animal::Animal(const Animal &copy)
 Animal::~Animal()
 {
 		std::cout << "Animal Destructor" << std::endl;
-		//delete this->_brain ;
 }
 Animal &  Animal::operator =(Animal const &inst)
 {
 	this->_type = inst.getType();
-/* 	this->_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		this->_brain->setIdea(i, inst._brain->getIdea(i)) */;
 	return *this;
 }
 
 void Animal::makeSound() const 
 {
-		std::cout << "Animal Sound" << std::endl;
+		std::cout << "📣 Undefined sound " << std::endl;
 }
 std::string Animal::getType() const 
 {
 	return(_type);
 }
-void Animal::setType(std::string type)
-{
-	_type=type;
-}
+
 std::string	Animal::getIdea(int i) const
 {
-	return("Animal Idea " + std::to_string(i));
+	//return("Animal Idea " + std::to_string(i));
+	(void)i;
+	return("Animal class havent got brain, please set type of Animal");
 }
-/* 
-void	Animal::setIdea(int i, std::string const & idea)
-{
-	this->_brain->setIdea(i, idea);
-} */

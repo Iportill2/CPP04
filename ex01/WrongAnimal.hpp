@@ -3,25 +3,24 @@
 # include <iostream>
 # include "Animal.hpp"
 # include "Brain.hpp"
-class WrongAnimal : public Brain
+class WrongAnimal:public Animal
 {
 	protected:
 		std::string _type;
 	private:
 		Brain	*_brain;
 	public:
+		//CANONICAL//
 					WrongAnimal();
-					WrongAnimal(std::string type);
 					WrongAnimal(const WrongAnimal &copy);
 		virtual				~WrongAnimal();
-		WrongAnimal & 	operator =(WrongAnimal const &inst);
+		WrongAnimal & 		operator =(WrongAnimal const &inst);
 
-		void		makeSound() const;
+		void		makeSound() const ;
 		std::string getType() const;
-		void		setType(std::string type);
 
-		virtual std::string	getIdea(int i) const;
-		void  				setIdea(int i, std::string const & idea);
-
+		std::string	getIdea(int i) const;
+		void  		setIdea(int i, std::string const & idea);
+	
 };
 #endif

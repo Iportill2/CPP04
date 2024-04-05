@@ -9,15 +9,15 @@ class Cat :public Animal
 	private:
 		Brain	*_brain;
 	public:
+		//CANONICAL
 					Cat();
-					Cat(std::string type);
 					Cat(const Cat &copy);
 		virtual		~Cat();
 		Cat & 	operator =(Cat const &inst);
 
 		void		makeSound() const ;
 		std::string getType() const;
-		void		setType(std::string type);
+		
 		std::string	getIdea(int i) const;
 		void  		setIdea(int i, std::string const & idea);
 

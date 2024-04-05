@@ -11,17 +11,17 @@ class Dog:public Animal
 		Brain	*_brain;
 	public:
 					Dog();
-					Dog(std::string type);
+					//Dog() : Animal("Dog") 
+        // código de inicialización específico de Dog
+    
 					Dog(const Dog &copy);
-		Dog & 		operator =(Dog const &inst);
 		virtual				~Dog();
+		Dog & 		operator =(Dog const &inst);
 
 		void		makeSound() const ;
+		std::string getType() const;
 
 		std::string	getIdea(int i) const;
 		void  		setIdea(int i, std::string const & idea);
-		
-		std::string getType() const;
-		void		setType(std::string type);
 };
 #endif
