@@ -7,7 +7,7 @@ int main()
 {
 	Animal* Zoo[2];
 	Zoo[0] = new Animal();
-	//Zoo[1] = new WrongAnimal();
+	Zoo[1] = new WrongAnimal();
 	for (int i = 1; i < 3; i++)
 	{
 		if (i % 2 == 0)

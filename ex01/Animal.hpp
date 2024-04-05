@@ -2,14 +2,14 @@
 # define ANIMAL_HPP
 
 # include <iostream>
-# include "Brain.hpp"
+//# include "Brain.hpp"
 
-class Animal : public Brain
+class Animal //: public Brain
 {
 	protected:
 		std::string _type;
-	private:
-		Brain	*_brain;
+/* 	private:
+		Brain	*_brain; */
 	public:
 							Animal();						//canonical
 							Animal(std::string type);		//canonical
@@ -18,7 +18,8 @@ class Animal : public Brain
 		virtual				~Animal();						//canonical
 
 		virtual std::string	getIdea(int i) const;
-		void  				setIdea(int i, std::string const & idea);
+/* 		
+		void  				setIdea(int i, std::string const & idea); */
 		virtual void		makeSound()const ;
 
 		std::string getType() const;
