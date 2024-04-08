@@ -5,17 +5,11 @@
 
 int main()
 {
-	//Animal	a("AAnimal");
-	Animal* Zoo[4];
+	Animal	a("AAnimal");
+/* 	Animal* Zoo[4];
 	Zoo[0] = new Animal("Cat");
 	Zoo[1] = new WrongAnimal();
-/* 	for (int i = 2; i < 4; i++)
-	{
-		if (i % 2 == 0)
-			Zoo[i] = new Dog();
-		else
-			Zoo[i] = new Cat();
-	} */
+
 	for (int i = 2; i < 4; i++)
 	{
 		if (i % 2 == 0)
@@ -40,6 +34,6 @@ int main()
 		delete Zoo[i];
 		std::cout << "**********************************" << std::endl;
 	}
-		system("leaks Polymorphism");//leaks + "executable name"
-	return 0;
+		system("leaks Abstract_class");//leaks + "executable name"
+	return 0; */
 }

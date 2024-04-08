@@ -10,7 +10,6 @@ class Animal //: public Cat , public Dog, public WrongAnimal
 {
 	protected:
 		std::string _type;
-
 	public:
 		//CANONICAL//
 							Animal();						

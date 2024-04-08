@@ -11,9 +11,6 @@ class Dog:public Animal
 		Brain	*_brain;
 	public:
 					Dog();
-					//Dog() : Animal("Dog") 
-        // código de inicialización específico de Dog
-    
 					Dog(const Dog &copy);
 		virtual				~Dog();
 		Dog & 		operator =(Dog const &inst);
