@@ -10,18 +10,18 @@ class Cat :public AAnimal
 		Brain	*_brain;
 	public:
 		//CANONICAL
-					Cat();
-					Cat(std::string type);
-					Cat(const Cat &copy);
+							Cat();
+							//Cat(std::string type);
+							Cat(const Cat &copy);
 		/* virtual */		~Cat();
-		Cat & 	operator =(Cat const &inst);
+		Cat & 				operator =(Cat const &inst);
 
 		//std::string getType() const;  //para que quieres gettype si brain no tiene _type??
 		
-		void		makeSound() const ;
-		std::string	getIdea(int i) const;
-		void  		setIdea(int i, std::string const & idea);
-
+		void				makeSound() const;
+		std::string			getIdea(int i) const;
+		void  				setIdea(int i, std::string const & idea);
+		std::string 		getType() const ;
 };
 #endif
 

@@ -19,10 +19,10 @@ class AAnimal //: public Cat , public Dog, public WrongAnimal
 							
 		AAnimal & 			operator =(AAnimal const &inst);	
 
-		std::string 		getType() const;
 
 		virtual std::string	getIdea(int i) const = 0;//
 		virtual void		makeSound()const = 0;
+		std::string 		getType() const;
 };
 #endif
 /*

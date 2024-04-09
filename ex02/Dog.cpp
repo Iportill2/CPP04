@@ -1,6 +1,6 @@
 #include "AAnimal.hpp"
 #include "Dog.hpp"
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : AAnimal("Dog")
 {
 	std::cout << "Default Dog Constructor" << std::endl;
 	this->_brain = new Brain();
@@ -19,6 +19,9 @@ Dog::~Dog()
 Dog &  Dog::operator =(Dog const &inst)
 {
 	this->_type = inst.getType();
+	this->_brain = new Brain();
+	for (int i = 0; i < 100; i++)
+		this->_brain->setIdea(i, inst._brain->getIdea(i));
 	return *this;
 }
 

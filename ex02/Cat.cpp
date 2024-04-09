@@ -1,6 +1,6 @@
 #include "AAnimal.hpp"
 #include "Cat.hpp"
-Cat::Cat()
+Cat::Cat() : AAnimal("Cat")
 {
 	std::cout << "Default Cat Constructor" << std::endl;
 	this->_brain = new Brain();
@@ -29,10 +29,14 @@ void Cat::makeSound() const
 {
 	std::cout << "Cat Sound MIAUH" << std::endl;
 }
+std::string Cat::getType() const 
+{
+	return(_type);
+}
 std::string	Cat::getIdea(int i) const
 {
-	return this->_brain->getIdea(i);
-	//return("Cat Idea " + std::to_string(i));
+	//return this->_brain->getIdea(i);
+	return("Cat Idea " + std::to_string(i));
 }
 
 void	Cat::setIdea(int i, std::string const & idea)

@@ -1,8 +1,9 @@
 #include "AAnimal.hpp"
 #include "WrongAnimal.hpp"
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal(): AAnimal("WrongAnimal") //: this->_type("WrongAnimal")
 {
 	std::cout << "Default WrongAnimal Constructor" << std::endl;
+	this->_type= "WrongAnimal";
 	this->_brain = new Brain();
 }
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)

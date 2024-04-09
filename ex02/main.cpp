@@ -5,9 +5,10 @@
 
 int main()
 {
-	Animal	a("AAnimal");
-/* 	Animal* Zoo[4];
-	Zoo[0] = new Animal("Cat");
+	//AAnimal	a("AAnimal");
+	AAnimal* Zoo[4];
+	//Zoo[0] = new AAnimal("Cat");
+	Zoo[0] = new Cat();
 	Zoo[1] = new WrongAnimal();
 
 	for (int i = 2; i < 4; i++)
@@ -24,8 +25,8 @@ int main()
 
 
 	std::cout <<"/" << Zoo[0]->getIdea(1)<< "/" << std::endl;
-	std::cout <<"/" << Zoo[1]->getIdea(2)<< "/" << std::endl;
-	std::cout <<"/" << Zoo[2]->getIdea(3)<< "/" << std::endl;
+	std::cout <<"/" << Zoo[1]->getIdea(2)<< "/" << std::endl;//OK
+	std::cout <<"/" << Zoo[2]->getIdea(3)<< "/" << std::endl;//OK
 	std::cout <<"/" << Zoo[3]->getIdea(4)<< "/" << std::endl;	
 		std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -34,6 +35,6 @@ int main()
 		delete Zoo[i];
 		std::cout << "**********************************" << std::endl;
 	}
-		system("leaks Abstract_class");//leaks + "executable name"
-	return 0; */
+		//system("leaks Abstract_class");//leaks + "executable name"
+	return 0;
 }
