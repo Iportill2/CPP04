@@ -5,7 +5,9 @@
 
 int main()
 {
-	//AAnimal	a("AAnimal");
+	//AAnimal	a;
+/* 	
+	AAnimal	b("AAnimal"); */
 	AAnimal* Zoo[4];
 	//Zoo[0] = new AAnimal("Cat");
 	Zoo[0] = new Cat();
@@ -35,6 +37,6 @@ int main()
 		delete Zoo[i];
 		std::cout << "**********************************" << std::endl;
 	}
-		//system("leaks Abstract_class");//leaks + "executable name"
+		system("leaks Abstract_class");//leaks + "executable name"
 	return 0;
 }

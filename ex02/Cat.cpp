@@ -1,16 +1,6 @@
 #include "AAnimal.hpp"
 #include "Cat.hpp"
 
-#include <sstream>
-
-template <typename T>
-std::string tu_string(const T& value) 
-{
-    std::ostringstream oss;
-    oss << value;
-    return oss.str();
-}
-
 Cat::Cat() : AAnimal("Cat")
 {
 	std::cout << "Default Cat Constructor" << std::endl;
@@ -43,6 +33,12 @@ void Cat::makeSound() const
 std::string Cat::getType() const 
 {
 	return(_type);
+}
+std::string 	Cat::tu_string(int value) const
+{
+	std::ostringstream oss;
+	oss << value;
+	return oss.str();
 }
 std::string	Cat::getIdea(int i) const
 {

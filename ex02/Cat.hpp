@@ -20,6 +20,9 @@ class Cat :public AAnimal
 		
 		void				makeSound() const;
 		std::string			getIdea(int i) const;
+
+		std::string 		tu_string(int value) const ;
+		
 		void  				setIdea(int i, std::string const & idea);
 		std::string 		getType() const ;
 };

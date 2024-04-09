@@ -20,6 +20,9 @@ WrongAnimal::~WrongAnimal()
 WrongAnimal &  WrongAnimal::operator =(WrongAnimal const &inst)
 {
 	this->_type = inst.getType();
+	this->_brain = new Brain();
+	for (int i = 0; i < 100; i++)
+		this->_brain->setIdea(i, inst._brain->getIdea(i));
 	return *this;
 }
 
@@ -32,60 +35,18 @@ std::string WrongAnimal::getType() const
 {
 	return(_type);
 }
+std::string 	WrongAnimal::tu_string(int value) const
+{
+	std::ostringstream oss;
+	oss << value;
+	return oss.str();
+}
 std::string	WrongAnimal::getIdea(int i) const
 {
-	return("WrongAnimal Idea " + std::to_string(i));
+	return("WrongAnimal Idea " + tu_string(i));
 }
 
 void		WrongAnimal::setIdea(int i, std::string const & idea)
 {
 	this->_brain->setIdea(i, idea);
 }
-/*
-#include "WrongAnimal.hpp"
-
-WrongAnimal::WrongAnimal(void): type("Undefined wrong type")
-{
-	std::cout << "🦠 WrongAnimal constructor called" << std::endl;
-}
-
-WrongAnimal::WrongAnimal(std::string type): type(type)
-{
-	std::cout << "🦠 WrongAnimal constructor called with type: " << this->type << std::endl;
-}
-
-WrongAnimal::WrongAnimal(const WrongAnimal &copy)
-{
-	std::cout << "🦠 WrongAnimal copy constructor called" << std::endl;
-	*this = copy;
-	return ;
-}
-
-WrongAnimal::~WrongAnimal(void)
-{
-	std::cout << "🦠 WrongAnimal destructor called" << std::endl;
-	return ; 
-}
-
-WrongAnimal & WrongAnimal::operator =(WrongAnimal const &rhs)
-{
-	this->type = rhs.getType();
-	return *this;
-}
-
-std::string	WrongAnimal::getType() const
-{
-	return (this->type);
-}
-
-void  		WrongAnimal::setType(std::string type)
-{
-	this->type = type;
-}
-
-void		WrongAnimal::makeSound(void) const
-{
-	std::cout << "🦠📣 Undefined wrong sound " << std::endl;
-}
-
-*/

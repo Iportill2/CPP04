@@ -1,6 +1,5 @@
 #ifndef DOG_HPP
 # define DOG_HPP
-# include <iostream>
 # include "AAnimal.hpp"
 # include "Brain.hpp"
 class Dog:public AAnimal
@@ -10,44 +9,20 @@ class Dog:public AAnimal
 	private:
 		Brain	*_brain;
 	public:
+		//CANONICAL//
 					Dog();
+					//Dog(std::string type);	
 					Dog(const Dog &copy);
-		virtual				~Dog();
+		/* virtual */~Dog();
 		Dog & 		operator =(Dog const &inst);
 
 		void		makeSound() const ;
 		std::string getType() const;
 
-		std::string	getIdea(int i) const;
+		std::string tu_string(int value) const;
+
+		std::string	getIdea(int i) const;//Definimos en el cpp los que hace getIdea
 		void  		setIdea(int i, std::string const & idea);
+
 };
 #endif
-
-/*
-
-#ifndef DOG_HPP
-# define DOG_HPP
-
-# include "Animal.hpp"
-# include "Brain.hpp"
- 
-class	Dog : public AAnimal
-{
-	private:
-		Brain	*_brain;
-	
-	public:
-		Dog(void);
-		Dog(std::string type);
-		Dog(const Dog &copy);
-		~Dog(void);
-
-		Dog & operator =(Dog const &rhs);
-
-		void		makeSound(void) const;
-		std::string	getIdea(int i) const;
-		void  		setIdea(int i, std::string const & idea);
-};
-
-#endif
-*/
