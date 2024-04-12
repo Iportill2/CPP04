@@ -2,10 +2,10 @@
 # define IMATERIA_HPP
 # include "AMateria.hpp"
 
-class IMateriaSource :virtual public AMateria
+class IMateriaSource //:virtual public AMateria
 {
 public:
-virtual ~IMateriaSource() {}
+virtual ~IMateriaSource() {};
 virtual void learnMateria(AMateria*) = 0;
 virtual AMateria* createMateria(std::string const & type) = 0;
 };

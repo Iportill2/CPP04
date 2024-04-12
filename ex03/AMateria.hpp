@@ -7,7 +7,7 @@ class ICharacter;
 
 class AMateria //: virtual Public ICharacter
 {
-protected:
+protected:// private: NO PUEDEN ACCEDER DESDE CURE 
 	std::string _type;
 public:
 //CANONICAL//

@@ -18,9 +18,20 @@ MateriaSource::MateriaSource(MateriaSource const & copy)
 }
 MateriaSource & MateriaSource::operator=(MateriaSource const & inst)
 {
-	std::cout << "Default MateriaSource constructor" << std::endl;
-	this->_type = inst.getType();
-	return *this;
+	std::cout << "MateriaSource assignation operator overloaded called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_materias[i])
+			delete this->_materias[i];
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		if (inst._materias[i])
+			this->_materias[i] = inst._materias[i]->clone();
+		else
+			this->_materias[i] = NULL;
+	}
+	return (*this);
 }
 MateriaSource::~MateriaSource()
 {
@@ -72,10 +83,12 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 	std::cout << "Default MateriaSource constructor" << std::endl;
 	return(_type);
 } */
-MateriaSource* MateriaSource::clone() const///NO SE SI HAY KE DEFINIRLA AL estar =0 en el hpp
+/* MateriaSource* MateriaSource::clone() const///NO SE SI HAY KE DEFINIRLA AL estar =0 en el hpp
 {
-
-}
+	std::cout << "Cure clone called. Allocating new Cure" << std::endl;
+	MateriaSource *clone = new MateriaSource(*this);
+	return (clone);
+} */
 /*
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP

@@ -29,8 +29,8 @@ AMateria::~AMateria()
 
 std::string const & AMateria::getType() const
 {
-	std::cout << "AMateria getType" << std::endl;
-	return(_type);
+	//std::cout << "AMateria " << this->getType() << std::endl;
+	return(this->_type);
 }
 /* AMateria::AMateria* clone() const //NO LA DEFINIMOS PARA CREAR AMATERIA COMO CLASE ABSTRACTA
 {

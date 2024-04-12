@@ -20,32 +20,38 @@ class Cure : public AMateria
 
 #endif
 */
-Cure::Cure()
+Cure::Cure(): AMateria("cure")
 {
-
+	std::cout << "Default Cure Constructor" << std::endl;
 }
-Cure::Cure()
+Cure::Cure(Cure const & copy)
 {
-	
+		std::cout << "Cure copy" << std::endl;
+		*this=copy;
 }
-Cure::Cure()
+Cure & Cure::operator=(Cure const &  inst)
 {
-	
+	std::cout << "Cure operator=" << std::endl;
+	this-> _type= inst.getType();
+	return(*this);
 }
-Cure::Cure()
+Cure::~Cure()
 {
-	
+	std::cout << "Cure destructor" << std::endl;
 }
 
 
 
 
 
-Cure::Cure()
+Cure* Cure::clone() const
 {
-	
+	std::cout << "Cure clone called. Allocating new Cure" << std::endl;
+	Cure *clone = new Cure(*this);
+	return (clone);
 }
-Cure::Cure()
+void  Cure::use(ICharacter& target)
 {
-	
+	std::cout << "* heals ";
+	std::cout << target.getName() << "'s wounds *" << std::endl;
 }

@@ -24,7 +24,7 @@ class Ice : public AMateria
 #endif
 */
 //CANONICAL//
-Ice::Ice()
+Ice::Ice(): AMateria("ice")
 {
 	std::cout << "Default Ice Constructor" << std::endl;
 }
