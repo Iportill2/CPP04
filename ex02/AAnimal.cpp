@@ -1,42 +1,40 @@
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal() : _type("Undefined type")
+Animal::Animal() : _type("Animal")
 {
-	std::cout << "Default Animal Constructor" << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
+}
 
-}
-AAnimal::AAnimal(std::string type) : _type(type) 
+Animal::Animal(Animal const & copy)
 {
-	std::cout << "Animal Constructor" << std::endl;
-}
-AAnimal::AAnimal(const AAnimal &copy)
-{
-	std::cout << "🧬 Animal copy constructor called" << std::endl;
+	std::cout << "Animal copy constructor called" << std::endl;
 	*this = copy;
-	return;
 }
-AAnimal::~AAnimal()
+
+Animal::~Animal()
 {
-		std::cout << "Animal Destructor" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
 }
-AAnimal & AAnimal::operator =(AAnimal const &inst)
+
+Animal & Animal::operator=(Animal const & rsh)
 {
-	this->_type = inst.getType();
+	this->_type = rsh._type;
+	
 	return *this;
 }
 
-std::string AAnimal::getType() const 
-{
-	return(_type);
-}
-void AAnimal::makeSound() const 
-{
-	std::cout << "📣 Undefined sound " << std::endl;
+std::string	Animal::getType() const
+{ 
+	return (this->_type);
 }
 
-/* std::string	AAnimal::getIdea(int i) const //No la definimos porque es una clase ABSTRACTA, ya la definiremos en los hijos
+void	Animal::makeSound() const
 {
-	(void)i;
-	return("Animal class havent got brain, please set type of Animal");
-} */
+	std::cout	<< "Animal sound!" << std::endl;
+}
 
+std::string	Animal::getIdea(int i) const
+{
+	(void) i;
+	return ("Animal getIdea");
+}

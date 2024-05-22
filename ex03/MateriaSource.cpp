@@ -6,10 +6,7 @@ MateriaSource::MateriaSource()
 {
 	std::cout << "Default MateriaSource constructor" << std::endl;
 }
-/* MateriaSource::MateriaSource(std::string const & type)
-{
-	std::cout << "MateriaSource constructor" << std::endl;
-} */
+
 MateriaSource::MateriaSource(MateriaSource const & copy)
 {
 	std::cout << "Default MateriaSource constructor" << std::endl;
@@ -37,8 +34,6 @@ MateriaSource::~MateriaSource()
 {
 	std::cout << "MateriaSource Destructor" << std::endl;
 }
-
-
 void		MateriaSource::learnMateria(AMateria* materia)
 {
 	if (!materia)
@@ -77,40 +72,3 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 	std::cout << "Materia not found" << std::endl;
 	return (NULL);
 }
-
-/* std::string const & MateriaSource::getType() const
-{
-	std::cout << "Default MateriaSource constructor" << std::endl;
-	return(_type);
-} */
-/* MateriaSource* MateriaSource::clone() const///NO SE SI HAY KE DEFINIRLA AL estar =0 en el hpp
-{
-	std::cout << "Cure clone called. Allocating new Cure" << std::endl;
-	MateriaSource *clone = new MateriaSource(*this);
-	return (clone);
-} */
-/*
-#ifndef MATERIASOURCE_HPP
-# define MATERIASOURCE_HPP
-
-#include "IMateriaSource.hpp"
-#include "AMateria.hpp"
-
-class MateriaSource : public IMateriaSource
-{
-	private:
-		AMateria	*_materias[4];
-	
-	public:
-		MateriaSource(void);
-		MateriaSource(MateriaSource const & copy);
-		virtual ~MateriaSource(void);
-		MateriaSource &	operator=(MateriaSource const & rhs);
-
-		virtual void		learnMateria(AMateria*);
-		virtual AMateria*	createMateria(std::string const & type);
-
-};
-
-#endif
-*/

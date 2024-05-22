@@ -1,32 +1,3 @@
-//#include "ICharacter.hpp"
-
-/*
-class AMateria;
-
-class Character : Public ICharacter
-{
-private:
-std:: string 				_name;		//nombre del pj
-AMateria 					*_materias[4];	//numero de materias que puede almacenar el pj
-
-
-
-public:
-//CANONICAL//
-							Character();
-							Character(std::string const & type);
-					 		Character(const ICharacter &copy);
-Character & 				operator =(Character const &inst);
-							~Character();
-
-
-
-std::string const & 		getName() const;
-void 						equip(AMateria* m);
-void 						unequip(int idx);
-void 						use(int idx, ICharacter& target);
-};
-*/
 #include "Character.hpp"
 Character::Character() : _name("Default name")
 {
@@ -58,7 +29,7 @@ Character & Character::operator =(Character const &inst)
 	std::cout << "Character operator =" << std::endl;
 	this->_name = inst.getName();
 	int i =0;
-	while(i <= 3 )
+	while(i < 4 )
 	{
 		if(this->_materias[i]!= NULL)
 		{
@@ -74,7 +45,7 @@ Character::~Character()
 {
 	std::cout << "Character Destructor named " << this->_name << std::endl;	
 	int i =0;
-	while(i <= 3 )
+	while(i < 4 )
 	{
 		if(this->_materias[i]!= NULL)
 		{
@@ -84,15 +55,10 @@ Character::~Character()
 		i++;
 	}
 }
-
-
-
 std::string const & Character::getName() const
 {
-	std::cout << "Character " << this->_name << " getName" << std::endl;
 	return(this->_name);
 }
-
 void Character::equip(AMateria* m)
 {
 	int i = 0;
@@ -115,7 +81,6 @@ void Character::equip(AMateria* m)
 	}
 	std::cout << "Character equip inventory is full" << std::endl;
 }
-
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
@@ -143,6 +108,6 @@ void Character::use(int idx, ICharacter& target)
 		std::cout << "Character No materia in this slot" << std::endl;
 		return ;
 	}
-	std::cout << "Character Using materia in Character inventory" << std::endl;
+	//std::cout << "Character Using materia in Character inventory" << std::endl;
 	this->_materias[idx]->use(target);
 }

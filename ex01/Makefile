@@ -1,12 +1,13 @@
-NAME = Polymorphism
+NAME = I_don’t_want_to_set_the_world_on_fire
 
 
 SRCS = 	main.cpp \
 		Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		Brain.cpp \
-		WrongAnimal.cpp 
+		WrongAnimal.cpp \
+		WrongCat.cpp \
+		Brain.cpp
 
 
 

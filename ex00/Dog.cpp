@@ -9,7 +9,7 @@ Dog::Dog(std::string type)
 	setType(type);
 	std::cout << "Dog Constructor" << std::endl;
 }
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy) : Animal("Dog")
 {
 	std::cout << "🧬 Dog copy constructor called" << std::endl;
 	*this = copy;

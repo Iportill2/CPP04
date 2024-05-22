@@ -29,17 +29,17 @@ AMateria::~AMateria()
 
 std::string const & AMateria::getType() const
 {
-	//std::cout << "AMateria " << this->getType() << std::endl;
+
 	return(this->_type);
 }
-/* AMateria::AMateria* clone() const //NO LA DEFINIMOS PARA CREAR AMATERIA COMO CLASE ABSTRACTA
-{
-	std::cout << "AMateria clone" << std::endl;
-} */
+
 void AMateria::use(ICharacter& target)
 {
-	std::cout << " AMateria use " << std::endl;
 
-	std::cout << "* shoots 🤷 at ";//
-	std::cout << target.getName() << " *" << std::endl;//
+	if(this->_type == "Ice")
+		std::cout << "shoots an ice bolt at " << target.getName() << std::endl;
+	else if(this->_type == "Cure")
+		std::cout << "heals " << target.getName() << " `s  wounds "<< std::endl;
+	else
+		std::cout << "Be sure how to type the materia type" << std::endl;
 }

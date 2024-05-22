@@ -1,50 +1,43 @@
-#include "AAnimal.hpp"
 #include "Dog.hpp"
-Dog::Dog() : AAnimal("Dog")
+
+Dog::Dog()
 {
-	std::cout << "Default Dog Constructor" << std::endl;
-	this->_brain = new Brain();
+	_type = "Dog";
+	_brain = new Brain();
+	std::cout << "Dog default constructor called" << std::endl;
 }
-Dog::Dog(const Dog &copy)
+
+Dog::Dog(Dog const & copy) :Animal(copy)
 {
-	std::cout << "🧬 Dog copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = copy;
-	return;
 }
+
 Dog::~Dog()
 {
-		std::cout << "Dog Destructor" << std::endl;
-		delete this->_brain ;
+	std::cout << "Dog destructor called" << std::endl;
+	delete _brain;
 }
-Dog &  Dog::operator =(Dog const &inst)
+
+Dog & Dog::operator=(Dog const & rhs)///OJO
 {
-	this->_type = inst.getType();
+	this->_type = rhs._type;
 	this->_brain = new Brain();
 	for (int i = 0; i < 100; i++)
-		this->_brain->setIdea(i, inst._brain->getIdea(i));
+		this->_brain->setIdeas(i, _brain->getIdeas(i));
 	return *this;
 }
 
-void Dog::makeSound() const
+void	Dog::makeSound() const
 {
-		std::cout << "Dog Sound BARK" << std::endl;
-}
-std::string Dog::getType() const 
-{
-	return(_type);
-}
-std::string 	Dog::tu_string(int value) const
-{
-	std::ostringstream oss;
-	oss << value;
-	return oss.str();
-}
-std::string	Dog::getIdea(int i) const
-{
-	return("Dog Idea " + tu_string(i));
+	std::cout << "Dog sounds!" << std::endl;
 }
 
-void		Dog::setIdea(int i, std::string const & idea)
+std::string Dog::getIdea(int i) const
 {
-	this->_brain->setIdea(i, idea);
+	return  _brain->getIdeas(i);
+}
+void Dog::setDogIdea(std::string idea, int i)
+{
+    this->_brain->setIdeas(i, idea);
 }

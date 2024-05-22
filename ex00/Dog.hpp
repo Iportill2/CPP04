@@ -4,17 +4,15 @@
 # include "Animal.hpp"
 class Dog:virtual public Animal
 {
-	protected:
-		std::string _type;
 	public:
-					Dog();
-					Dog(std::string type);
-					Dog(const Dog &copy);
-		virtual				~Dog();
-		Dog & 	operator =(Dog const &inst);
+					Dog();					//canonical
+					Dog(std::string type);	//canonical
+					Dog(const Dog &copy);	//canonical
+		Dog & 	operator =(Dog const &inst);//canonical
+		virtual				~Dog();			//canonical
 
-		void		makeSound() const ;
-		std::string getType() const;
-		void		setType(std::string type);
+		virtual void		makeSound() const ;
+		std::string 		getType() const;
+		void				setType(std::string type);
 };
 #endif

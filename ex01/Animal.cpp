@@ -1,48 +1,40 @@
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Undefined type")
+Animal::Animal() : _type("Animal")
 {
-	std::cout << "Default Animal Constructor" << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
+}
 
-}
-Animal::Animal(std::string type) : _type(type) 
+Animal::Animal(Animal const & copy)
 {
-	std::cout << "Animal Constructor" << std::endl;
-/* 	if(getType() == "Dog")
-		Dog();
-	else if(getType() == "Cat")
-		Cat();
-	else
-		WrongAnimal(); */
-}
-Animal::Animal(const Animal &copy)
-{
-	std::cout << "🧬 Animal copy constructor called" << std::endl;
+	std::cout << "Animal copy constructor called" << std::endl;
 	*this = copy;
-	return;
 }
+
 Animal::~Animal()
 {
-		std::cout << "Animal Destructor" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
 }
-Animal &  Animal::operator =(Animal const &inst)
+
+Animal & Animal::operator=(Animal const & rsh)
 {
-	this->_type = inst.getType();
+	this->_type = rsh._type;
+	
 	return *this;
 }
 
-void Animal::makeSound() const 
-{
-		std::cout << "📣 Undefined sound " << std::endl;
+std::string	Animal::getType() const
+{ 
+	return (this->_type);
 }
-std::string Animal::getType() const 
+
+void	Animal::makeSound() const
 {
-	return(_type);
+	std::cout	<< "Animal sound!" << std::endl;
 }
 
 std::string	Animal::getIdea(int i) const
 {
-	//return("Animal Idea " + std::to_string(i));
-	(void)i;
-	return("Animal class havent got brain, please set type of Animal");
+	(void) i;
+	return ("Animal getIdea");
 }

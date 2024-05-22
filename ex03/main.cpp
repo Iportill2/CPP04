@@ -1,43 +1,47 @@
-/* 
-#include <iostream>
+
 #include "AMateria.hpp"
-#include "MateriaSource.hpp"
-#include "ICharacter.hpp"
 #include "Character.hpp"
-#include "Ice.hpp"
 #include "Cure.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
-int main()
+#include "MateriaSource.hpp"
+void subject()
 {
-IMateriaSource* src = new MateriaSource();
-src->learnMateria(new Ice());
-src->learnMateria(new Cure());
-ICharacter* me = new Character("me");
-AMateria* tmp;
-tmp = src->createMateria("ice");
-me->equip(tmp);
-tmp = src->createMateria("cure");
-me->equip(tmp);
-ICharacter* bob = new Character("bob");
-me->use(0, *bob);
-me->use(1, *bob);
-delete bob;
-delete me;
-delete src; 
-		//system("leaks Interface_and_recap");//leaks + "executable name"
+	std::cout << "-------------------1-----------------" << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	std::cout << "-------------------2-----------------" << std::endl;
+	src->learnMateria(new Ice());
+	std::cout << "-------------------3-----------------" << std::endl;
+	src->learnMateria(new Cure());
+	std::cout << "-------------------4-----------------" << std::endl;
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	std::cout << "-------------------5-----------------" << std::endl;
+	tmp = src->createMateria("ice");
+	std::cout << "-------------------6-----------------" << std::endl;
+	me->equip(tmp);
+	std::cout << "-------------------7-----------------" << std::endl;
+	tmp = src->createMateria("cure");
+	std::cout << "-------------------8-----------------" << std::endl;
+	me->equip(tmp);
+	std::cout << "-------------------9-----------------" << std::endl;
+	ICharacter* bob = new Character("bob");
+	std::cout << "///////////////////10////////////////" << std::endl;
+	me->use(0, *bob);
+	me->use(1, *bob);
+	std::cout << "///////////////////12////////////////" << std::endl;
+
+
+	delete bob;
+	delete me;
+	//delete src->learnMateria;
+	delete src;
+
 }
-*/
-#include "AMateria.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
 
-int main()
+void owntest()
 {
-
 /*Se crea un puntero a la interfaz IMateriaSource 
 y se le asigna la dirección de un nuevo objeto de la clase MateriaSource. 
 Esta clase implementa la interfaz IMateriaSource y proporciona funcionalidades 
@@ -133,4 +137,10 @@ del inventario en el personaje bob(MARIATERESA).*/
 	delete src;
 	std::cout << std::endl << "-------------------" << std::endl;
 	std::cout << "-------------------" << std::endl << std::endl;
+}
+int main()
+{
+	subject();
+	//owntest();
+
 }

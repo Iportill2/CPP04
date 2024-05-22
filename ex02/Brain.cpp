@@ -1,35 +1,45 @@
-# include "Brain.hpp"
+#include "Brain.hpp"
 
-Brain :: Brain()
+Brain::Brain()
 {
-	std::cout << "Default Constructor Brain" << std::endl;
-
-	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = " Brain Idea["+ std::to_string(i) + "]:";
-
+    std::cout << "Brain constructor called" << std::endl;
+    int i = 0;
+    while(i < 100)
+    {
+        std::stringstream ss;
+        ss << i;
+        this->_ideas[i] = "idea " + ss.str();
+        i++; 
+    }
 }
-Brain :: Brain(const Brain &copy)
+Brain::Brain(Brain const & copy)
 {
-	std::cout << "Brain Copy Constructor " << std::endl;
+	std::cout << "Brain copy constructor called" << std::endl;
 	*this = copy;
-	//return ;
 }
-Brain :: ~Brain()
+
+Brain::~Brain()
 {
-	std::cout << "Destructor Brain" << std::endl;
+	std::cout << "Brain destructor called" << std::endl;
 }
-Brain & Brain :: operator =(Brain const &inst)
+
+Brain & Brain::operator=(Brain const & rhs)
 {
-	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = inst._ideas[i];
+	int i = 0;
+	while(i < 100)
+    {
+		this->_ideas[i] = rhs._ideas[i];
+        i++; 
+    }
 	return *this;
 }
 
-std::string	Brain :: getIdea(int i )const
+std::string  Brain::getIdeas(int i)
 {
-		return this->_ideas[i];
+	return _ideas[i];
 }
-void Brain :: setIdea(int i, std::string const & idea)
+
+void	Brain::setIdeas(int i, std::string idea)
 {
-	this->_ideas[i] = idea;
+	_ideas[i] = idea;
 }

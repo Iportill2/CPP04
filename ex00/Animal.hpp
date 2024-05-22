@@ -13,8 +13,8 @@ class Animal
 		Animal & 			operator =(Animal const &inst);	//canonical
 
 		virtual void		makeSound()const ;
-		std::string getType() const;
-		void		setType(std::string type);
+		std::string 		getType() const;
+		void				setType(std::string type);
 };
 #endif
 

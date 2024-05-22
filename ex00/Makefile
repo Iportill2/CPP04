@@ -5,7 +5,8 @@ SRCS = 	main.cpp \
 		Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		WrongAnimal.cpp 
+		WrongAnimal.cpp \
+		WrongCat.cpp
 
 
 

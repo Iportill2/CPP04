@@ -1,61 +1,26 @@
 #ifndef CAT_HPP
-# define CAT_HPP
-# include "AAnimal.hpp"
-# include "Brain.hpp"
-class Cat :public AAnimal
-{
-/* 	protected:
-		std::string _type; */
-	private:
-		Brain	*_brain;
-	public:
-		//CANONICAL
-							Cat();
-							//Cat(std::string type);
-							Cat(const Cat &copy);
-		/* virtual */		~Cat();
-		Cat & 				operator =(Cat const &inst);
+#define CAT_HPP
 
-		//std::string getType() const;  //para que quieres gettype si brain no tiene _type??
-		
-		void				makeSound() const;
-		std::string			getIdea(int i) const;
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-		std::string 		tu_string(int value) const ;
-		
-		void  				setIdea(int i, std::string const & idea);
-		std::string 		getType() const ;
-};
-#endif
-
-/*
-#ifndef CAT_HPP
-# define CAT_HPP
-
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class	Cat : public AAnimal
+class Cat : public Animal
 {
 	private:
-		Brain	*_brain;
+
+		Brain* _brain;
 	
 	public:
-		Cat(void);
-		Cat(std::string type);
-		Cat(const Cat &copy);
-		~Cat(void);
 
-		Cat & operator =(Cat const &rhs);
+		Cat();
+		Cat(Cat const & copy);
+		virtual ~Cat();
 
-		void		makeSound(void) const;
+		Cat & operator=(Cat const & rhs);
+		
+		void	makeSound() const;
 		std::string	getIdea(int i) const;
-		void  		setIdea(int i, std::string const & idea);
+		void setCatIdea(std::string idea, int i);
 };
 
-
-
-
-
 #endif
-*/

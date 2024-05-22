@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Undefined type")
+Animal::Animal() : _type("Animal")
 {
 	//setType("Undefined type");
 	std::cout << "Default Animal Constructor" << std::endl;
@@ -18,17 +18,21 @@ Animal::Animal(const Animal &copy)
 }
 Animal::~Animal()
 {
-		std::cout << "Animal Destructor" << std::endl;
+	std::cout << "Animal Destructor" << std::endl;
 }
 Animal &  Animal::operator =(Animal const &inst)
 {
 	this->_type = inst.getType();
+	std::cout << "🧬 Animal operator = called" << std::endl;
 	return *this;
 }
 
 void Animal::makeSound() const 
 {
+/* 	if(_type == "Animal" ) */
 		std::cout << "Animal Sound" << std::endl;
+/* 	else
+		std::cout << "" << std::endl; */
 }
 std::string Animal::getType() const 
 {

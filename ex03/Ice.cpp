@@ -1,34 +1,11 @@
 #include "Ice.hpp"
-/*
 
-
-#ifndef ICE_HPP
-# define ICE_HPP
-
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
-
-class Ice : public AMateria
-{
-	public:
-		Ice(void);
-		Ice(Ice const & copy);
-		virtual ~Ice(void);
-
-		Ice &	operator=(Ice const & rhs);
-
-		virtual AMateria*	clone(void) const;
-		virtual void		use(ICharacter& target);
-};
-
-#endif
-*/
 //CANONICAL//
 Ice::Ice(): AMateria("ice")
 {
 	std::cout << "Default Ice Constructor" << std::endl;
 }
-Ice::Ice(Ice const & copy)
+Ice::Ice(Ice const & copy):AMateria(copy)
 {
 	std::cout << "Ice Copy" << std::endl;
 	*this = copy;
@@ -43,8 +20,6 @@ Ice::~Ice()
 {
 	std::cout << "Ice Destructor" << std::endl;
 }
-
-
 void Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at ";

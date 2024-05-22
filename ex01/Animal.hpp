@@ -1,25 +1,25 @@
 #ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#define ANIMAL_HPP
 
-# include <iostream>
-/* # include "Dog.hpp"
-# include "Cat.hpp"
-# include "WrongAnimal.hpp" */
+#include <iostream>
 
-class Animal //: public Cat , public Dog, public WrongAnimal
+class Animal
 {
 	protected:
-		std::string _type;
+		
+		std::string	_type;
+	
 	public:
-		//CANONICAL//
-							Animal();						
-							Animal(std::string type);		
-							Animal(const Animal &copy);		
-		Animal & 			operator =(Animal const &inst);	
-		virtual				~Animal();						
 
+		Animal();
+		Animal(Animal const & copy);
+		virtual ~Animal();
+
+		Animal & operator=(Animal const & rhs);
+
+		virtual void makeSound() const;
 		virtual std::string	getIdea(int i) const;
-		virtual void		makeSound()const ;
-		std::string 		getType() const;
+		std::string	getType() const;
 };
+
 #endif

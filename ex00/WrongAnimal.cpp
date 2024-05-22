@@ -1,6 +1,6 @@
-#include "Animal.hpp"
 #include "WrongAnimal.hpp"
-WrongAnimal::WrongAnimal(): _type("Undefined wrong type")
+#include "WrongAnimal.hpp"
+WrongAnimal::WrongAnimal(): _type("WrongAnimal")
 {
 	std::cout << "Default WrongAnimal Constructor" << std::endl;
 }
@@ -21,17 +21,14 @@ WrongAnimal::~WrongAnimal()
 }
 WrongAnimal &  WrongAnimal::operator =(WrongAnimal const &inst)
 {
-	//WrongWrongAnimal & Animal::operator =(Animal const &rhs)
-
 	this->_type = inst.getType();
+	std::cout << "🧬 WrongAnimal operator = called" << std::endl;
 	return *this;
-
 }
 
 void WrongAnimal::makeSound() const 
 {
-
-		std::cout << "WrongAnimal Sound" << std::endl;
+	std::cout << "WrongAnimal Sound" << std::endl;
 }
 std::string WrongAnimal::getType() const 
 {

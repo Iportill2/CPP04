@@ -1,52 +1,34 @@
-#include "AAnimal.hpp"
 #include "WrongAnimal.hpp"
-WrongAnimal::WrongAnimal(): AAnimal("WrongAnimal") //: this->_type("WrongAnimal")
+
+WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-	std::cout << "Default WrongAnimal Constructor" << std::endl;
-	this->_type= "WrongAnimal";
-	this->_brain = new Brain();
+	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
-WrongAnimal::WrongAnimal(const WrongAnimal &copy)
+
+WrongAnimal::WrongAnimal(WrongAnimal const & copy)
 {
-	std::cout << "🧬 WrongAnimal copy constructor called" << std::endl;
-	*this = copy;
-	return;
+    std::cout << "WrongAnimal copy constructor called" << std::endl;
+    *this = copy;
 }
+
 WrongAnimal::~WrongAnimal()
 {
-		std::cout << "WrongAnimal Destructor" << std::endl;
-		delete this->_brain ;
+	std::cout << "WrongAnimal destructor called" << std::endl;
 }
-WrongAnimal &  WrongAnimal::operator =(WrongAnimal const &inst)
+
+WrongAnimal & WrongAnimal::operator=(WrongAnimal const & rsh)
 {
-	this->_type = inst.getType();
-	this->_brain = new Brain();
-	for (int i = 0; i < 100; i++)
-		this->_brain->setIdea(i, inst._brain->getIdea(i));
+	this->_type = rsh._type;
+	
 	return *this;
 }
 
-void WrongAnimal::makeSound() const
-{
-
-		std::cout << "diferent sound to bark & miauh" << std::endl;
-}
-std::string WrongAnimal::getType() const 
-{
-	return(_type);
-}
-std::string 	WrongAnimal::tu_string(int value) const
-{
-	std::ostringstream oss;
-	oss << value;
-	return oss.str();
-}
-std::string	WrongAnimal::getIdea(int i) const
-{
-	return("WrongAnimal Idea " + tu_string(i));
+std::string	WrongAnimal::getType() const
+{ 
+	return ("type: " + _type);
 }
 
-void		WrongAnimal::setIdea(int i, std::string const & idea)
+void	WrongAnimal::makeSound() const
 {
-	this->_brain->setIdea(i, idea);
+	std::cout	<< "WrongAnimal sound!" << std::endl;
 }

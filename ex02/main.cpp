@@ -1,42 +1,98 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iportill <iportill@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/17 17:13:52 by jgoikoet          #+#    #+#             */
+/*   Updated: 2024/05/22 17:11:15 by iportill         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "Brain.hpp"
+#include "WrongCat.hpp"
+
 
 int main()
-{
-	//AAnimal	a;
-/* 	
-	AAnimal	b("AAnimal"); */
-	AAnimal* Zoo[4];
-	//Zoo[0] = new AAnimal("Cat");
-	Zoo[0] = new Cat();
-	Zoo[1] = new WrongAnimal();
+{	
+	////////////////////////////////////////////////////////////////////////////////
+	Animal X;
+	////////////////////////////////////////////////////////////////////////////////
+	Dog* a = new Dog();
+	const Animal* z = new Dog();
+	const Animal* w = new Cat();
+	
+	Dog* copyDog = a;
+	const Animal* copyCat = w;
 
-	for (int i = 2; i < 4; i++)
+	const Animal* ar[10];
+	for (int i = 0; i < 10; i++)
 	{
 		if (i % 2 == 0)
-			Zoo[i] = new Dog();
+			ar[i] = new Dog();
 		else
-			Zoo[i] = new Cat();
+			ar[i] = new Cat();
 	}
-	std::cout << std::endl << "Zoo number 0 is " << Zoo[0]->getType() << std::endl ;
-	std::cout << "Zoo number 1 is " << Zoo[1]->getType() << std::endl ;
-	std::cout <<  "Zoo number 2 is " << Zoo[2]->getType() << std::endl ;
-	std::cout << "Zoo number 3 is " << Zoo[3]->getType() << std::endl <<std::endl;
 
+	std::cout << std::endl << "-----------------------" << std::endl << std::endl;
 
-	std::cout <<"/" << Zoo[0]->getIdea(1)<< "/" << std::endl;
-	std::cout <<"/" << Zoo[1]->getIdea(2)<< "/" << std::endl;//OK
-	std::cout <<"/" << Zoo[2]->getIdea(3)<< "/" << std::endl;//OK
-	std::cout <<"/" << Zoo[3]->getIdea(4)<< "/" << std::endl;	
-		std::cout << "+++++++++++++++++++++++++++++++++" << std::endl;
-	for (int i = 0; i < 4; i++)
+	std::cout << "Prueba copia dog: " << copyDog->getType() << std::endl;
+	copyDog->makeSound();
+	std::cout << copyDog->getType() << " is thinking: \"" << copyDog->getIdea(0) << "\"" << std::endl;
+	std::cout << "Prueba copia Animal cat: " << copyCat->getType() << std::endl;
+	copyCat->makeSound();
+	std::cout << copyCat->getType() << " is thinking: \"" << copyCat->getIdea(9) << "\"" << std::endl;
+
+	std::cout << std::endl << "-----------------------" << std::endl << std::endl;
+
+	std::cout << "soy z Animal-dog " << z->getIdea(9) << std::endl;
+	std::cout << a->getType() << " is thinking: \"" << a->getIdea(1) << "\"" << std::endl;
+	std::cout << a->getType() << " is thinking: \"" << a->getIdea(2) << "\"" << std::endl;
+	
+	std::cout << std::endl << "-----------------------" << std::endl << std::endl;
+	
+	std::cout << "PROBANDO EL ARRAY" << std::endl << std::endl;
+	int i = 0;
+	while(i < 10)
 	{
-		Zoo[i]->makeSound();
-		delete Zoo[i];
-		std::cout << "**********************************" << std::endl;
+		std::cout << ar[i]->getType() << " is thinking: \"" <<ar[i]->getIdea(i) << "\"" << std::endl;
+		i++;
 	}
-		system("leaks Abstract_class");//leaks + "executable name"
+
+	std::cout << std::endl << "-----------------------" << std::endl << std::endl;
+
+	
+	std::cout << copyDog->getType() << " is thinking: \"" << copyDog->getIdea(1) << "\"" << std::endl;
+	copyDog->setDogIdea("pepiño",1);
+	std::cout << copyDog->getType() << " is thinking: \"" << copyDog->getIdea(1) << "\"" << std::endl;
+	
+
+	/* std::cout << copyCat->getType() << " is thinking: \"" << copyCat->getIdea(1) << "\"" << std::endl;
+	copyCat->setCatIdea("pepiño",1);
+	std::cout << copyCat->getType() << " is thinking: \"" << copyCat->getIdea(1) << "\"" << std::endl;
+	 */
+	std::cout << std::endl << "***********************" << std::endl << std::endl;
+	Dog basic;
+	
+	std::cout << basic.getType() << " is thinking: \"" << basic.getIdea(1) << "\"" << std::endl;
+	basic.setDogIdea("pepiño",1);
+	{
+		Dog tmp = basic;
+		std::cout << tmp.getType() << " is thinking: \"" << tmp.getIdea(1) << "\"" << std::endl;
+	}	
+	
+	i = 0;
+	while(i < 10)
+	{
+		delete ar[i];
+		i++;
+	}
+	delete a;
+	delete z;
+	delete w;
+
 	return 0;
 }
