@@ -4,7 +4,7 @@ Dog::Dog(): Animal("Dog")
 {
 	std::cout << "Default Dog Constructor" << std::endl;
 }
-Dog::Dog(std::string type)
+Dog::Dog(std::string type) :Animal("Dog")
 {
 	setType(type);
 	std::cout << "Dog Constructor" << std::endl;

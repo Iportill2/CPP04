@@ -4,7 +4,7 @@ WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
 	std::cout << "Default WrongCat Constructor" << std::endl;
 }
-WrongCat::WrongCat(std::string type)
+WrongCat::WrongCat(std::string type) : WrongAnimal("WrongCat")
 {
 	setType(type);
 	std::cout << "WrongCat Constructor" << std::endl;

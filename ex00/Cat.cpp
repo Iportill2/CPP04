@@ -4,7 +4,7 @@ Cat::Cat(): Animal("Cat")
 {
 	std::cout << "Default Cat Constructor" << std::endl;
 }
-Cat::Cat(std::string type)
+Cat::Cat(std::string type) : Animal("Cat")
 {
 	setType(type);
 	std::cout << "Cat Constructor" << std::endl;
