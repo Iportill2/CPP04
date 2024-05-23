@@ -6,7 +6,11 @@ Cat::Cat()
 	_type = "Cat";
 	_brain = new Brain();
 }
-
+Cat::Cat(std::string type) :Animal()
+{
+	setType(type);
+	std::cout << "Dog Constructor" << std::endl;
+}
 Cat::Cat(Cat const & copy):Animal(copy)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
@@ -40,4 +44,12 @@ std::string Cat::getIdea(int i) const
 void Cat::setCatIdea(std::string idea, int i)
 {
     this->_brain->setIdeas(i, idea);
+}
+std::string Cat::getType() const 
+{
+	return(this->_type);
+}
+void Cat::setType(std::string type)
+{
+	this->_type=type;
 }

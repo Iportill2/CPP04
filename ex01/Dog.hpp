@@ -13,6 +13,7 @@ class Dog : public Animal
 	public:
 
 		Dog();
+		Dog(std::string type);
 		Dog(Dog const & copy);
 		virtual ~Dog();
 
@@ -21,6 +22,9 @@ class Dog : public Animal
 		void	makeSound() const;
 		std::string	getIdea(int i) const;
 		void setDogIdea(std::string idea, int i);
+
+		std::string 		getType() const;
+		void				setType(std::string type);
 };
 
 #endif

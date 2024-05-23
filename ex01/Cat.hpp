@@ -13,6 +13,7 @@ class Cat : public Animal
 	public:
 
 		Cat();
+		Cat(std::string type);
 		Cat(Cat const & copy);
 		virtual ~Cat();
 
@@ -21,6 +22,9 @@ class Cat : public Animal
 		void	makeSound() const;
 		std::string	getIdea(int i) const;
 		void setCatIdea(std::string idea, int i);
+
+		std::string 		getType() const;
+		void				setType(std::string type);
 };
 
 #endif

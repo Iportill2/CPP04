@@ -1,12 +1,16 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
 	_type = "Dog";
 	_brain = new Brain();
 	std::cout << "Dog default constructor called" << std::endl;
 }
-
+Dog::Dog(std::string type) :Animal()
+{
+	setType(type);
+	std::cout << "Dog Constructor" << std::endl;
+}
 Dog::Dog(Dog const & copy) :Animal(copy)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
@@ -40,4 +44,12 @@ std::string Dog::getIdea(int i) const
 void Dog::setDogIdea(std::string idea, int i)
 {
     this->_brain->setIdeas(i, idea);
+}
+std::string Dog::getType() const 
+{
+	return(this->_type);
+}
+void Dog::setType(std::string type)
+{
+	this->_type=type;
 }
